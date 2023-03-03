@@ -1,24 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import styled from "@emotion/styled";
+import { Button as AntdButton, ConfigProvider, theme as AntdTheme } from "antd";
+import theme from "styles/theme";
+import useToken from "hooks/useToken";
+import Text from "pages/Text";
+import algorithm from "styles/algorithm";
+let SomeComp = styled.div({
+  color: "hotpink",
+});
+
+let AnotherComp = styled.div`
+  color: ${(props) => props.color};
+`;
+const Button = styled(AntdButton)``;
 
 function App() {
+  const { token } = useToken();
+  const [dark, setDark] = useState(false);
+  console.log(token);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <ConfigProvider
+        theme={
+          dark
+            ? {
+                algorithm: (designToken, derivativeToken) =>
+                  algorithm(dark, designToken, derivativeToken),
+              }
+            : theme
+        }
+      >
+        <SomeComp
+          onClick={() => {
+            console.log(token);
+            setDark(!dark);
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          切换主题 {dark ? "黑色" : "白色"}
+        </SomeComp>
+        <AnotherComp>By Soul</AnotherComp>
+        <Button>Test</Button>
+        <Text />
+      </ConfigProvider>
     </div>
   );
 }
