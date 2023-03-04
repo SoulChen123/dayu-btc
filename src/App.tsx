@@ -1,50 +1,50 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import styled from "@emotion/styled";
-import { Button as AntdButton, ConfigProvider, theme as AntdTheme } from "antd";
+import { ConfigProvider } from "antd";
 import theme from "styles/theme";
-import useToken from "hooks/useToken";
-import Text from "pages/Text";
 import algorithm from "styles/algorithm";
-let SomeComp = styled.div({
-  color: "hotpink",
+import ThemeContext from "provider/ThemeContext";
+import { localStorage } from "utils/storage";
+import { RouterProvider } from "react-router-dom";
+import router from "router";
+import { ThemeProvider } from "@emotion/react";
+import darkTheme from "styles/darkTheme";
+import "styles/reset.css";
+import { ToastContainer } from "react-toastify";
+const SomeComp = styled.div({
+  color: "hotpink"
 });
-
-let AnotherComp = styled.div`
-  color: ${(props) => props.color};
+const Wrapper = styled.div`
+  background: ${({ theme }) => theme.background.white};
+  position: relative;
+  z-index: 10;
 `;
-const Button = styled(AntdButton)``;
-
 function App() {
-  const { token } = useToken();
-  const [dark, setDark] = useState(false);
-  console.log(token);
-
+  const [dark, setDark] = useState<string>(localStorage.get("theme") || "dark");
   return (
-    <div className="App">
-      <ConfigProvider
-        theme={
-          dark
-            ? {
-                algorithm: (designToken, derivativeToken) =>
-                  algorithm(dark, designToken, derivativeToken),
-              }
-            : theme
-        }
-      >
-        <SomeComp
-          onClick={() => {
-            console.log(token);
-            setDark(!dark);
-          }}
-        >
-          切换主题 {dark ? "黑色" : "白色"}
-        </SomeComp>
-        <AnotherComp>By Soul</AnotherComp>
-        <Button>Test</Button>
-        <Text />
-      </ConfigProvider>
-    </div>
+    <ThemeProvider theme={dark === "dark" ? darkTheme : theme}>
+      <ThemeContext.Provider value={dark}>
+        <Wrapper className="App">
+          <ConfigProvider
+            theme={{
+              algorithm: (designToken, derivativeToken) =>
+                algorithm(dark === "dark" ? true : false, designToken, derivativeToken)
+            }}
+          >
+            <SomeComp
+              onClick={() => {
+                setDark((d: string) => (d === "dark" ? "light" : "dark"));
+                localStorage.set("theme", dark === "dark" ? "light" : "dark");
+              }}
+            >
+              切换主题 {dark === "dark" ? "黑色" : "白色"}
+            </SomeComp>
+            <RouterProvider router={router} />
+            <ToastContainer position="top-right" autoClose={3000} closeButton={false} />
+          </ConfigProvider>
+        </Wrapper>
+      </ThemeContext.Provider>
+    </ThemeProvider>
   );
 }
 
