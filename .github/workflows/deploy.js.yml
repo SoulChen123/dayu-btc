@@ -6,8 +6,8 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  pages: read
+  id-token: read
 
 jobs:
   deploy:
