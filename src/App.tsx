@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { ConfigProvider } from "antd";
-import theme from "styles/theme";
+import theme from "styles/lightTheme";
 import algorithm from "styles/algorithm";
 import ThemeContext from "provider/ThemeContext";
 import { localStorage } from "utils/storage";
@@ -26,10 +26,14 @@ function App() {
       <ThemeContext.Provider value={dark}>
         <Wrapper className="App">
           <ConfigProvider
-            theme={{
-              algorithm: (designToken, derivativeToken) =>
-                algorithm(dark === "dark" ? true : false, designToken, derivativeToken)
-            }}
+            theme={
+              dark === "dark"
+                ? {
+                    algorithm: (designToken, derivativeToken) =>
+                      algorithm(dark === "dark" ? true : false, designToken, derivativeToken)
+                  }
+                : theme
+            }
           >
             <SomeComp
               onClick={() => {

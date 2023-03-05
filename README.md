@@ -1,46 +1,8 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#  DayuBTC Front end
+1. **使用[yarn](https://yarnpkg.com/ "yarn")进行第三方包管理**;
+2.  **组件库[Antd](https://ant.design/components/overview-cn "Antd")**;
+3. **css编写使用的是[styled-commponent](https://emotion.sh/docs/styled "styled-commponent"),也可以使用scss，但是不太建议，例子参考pages/welcome**;
+4.  **第三方[hooks](https://ahooks.js.org/zh-CN/hooks/use-request/index "hooks")**;
+5.  **git push规范请查看 .commitlintrc.json 文件**;
+6.  **主题文件在styles 目录下面，白色主题-`lightTheme.ts`修改,黑色主题-`darkTheme.ts`修改，一般只需要处理自定义样式的颜色,关于antd 的颜色不用去处理**;
+##   目前Header（适配手机端）没弄，Mint-页面没弄，welcome页面待定；用户信息封装hooks

@@ -5,7 +5,7 @@ import ThemeContext from "provider/ThemeContext";
 import "./index.css";
 const Wrapper = styled.div<{ mode: string | null }>`
   background: ${({ mode }) =>
-    mode === "dark" ? "inherit" : "linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%)"};
+    mode === "dark" ? "inherit" : "linear-gradient(60deg, rgba(228, 168, 65,1) 0%, rgba(228, 168, 65,0.5) 100%)"};
   color: ${({ theme }) => theme.colors.black};
   font-size: 48px;
   font-weight: 600;
@@ -42,6 +42,12 @@ const Welcome = () => {
           </g>
         </svg>
       </div>
+      <a
+        className="twitter-timeline"
+        data-width="400"
+        data-height="400"
+        href="https://twitter.com/BTCdayu?ref_src=twsrc%5Etfw"
+      ></a>
     </Wrapper>
   );
 };

@@ -1,6 +1,6 @@
 // 白色主题
 const theme = {
-  token: { colorPrimary: "#1751ff" },
+  token: { colorPrimary: "#ffbe17" },
   colors: {
     black: "black"
   },
