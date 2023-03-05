@@ -2,7 +2,7 @@
   "name": "dayu-btc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SoulChen123.github.io/dayu-btc/",
+  "homepage": "./",
   "dependencies": {
     "@craco/craco": "^7.0.0",
     "@emotion/react": "^11.10.6",
