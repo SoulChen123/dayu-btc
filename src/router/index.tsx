@@ -10,6 +10,6 @@ const router = createBrowserRouter(
       <Route path="/" element={<Welcome />}></Route>
     </Route>
   ),
-  { basename: process.env.PUBLIC_URL }
+  { basename: "/dayu-btc/" }
 );
 export default router;
