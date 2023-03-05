@@ -10,6 +10,6 @@ const router = createBrowserRouter(
       <Route path="/" element={<Welcome />}></Route>
     </Route>
   ),
-  { basename: "/dayu-btc/" }
+  { basename: "/dayu-btc" }
 );
 export default router;
