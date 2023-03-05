@@ -2,6 +2,7 @@
   "name": "dayu-btc",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://SoulChen123.github.io/dayu-btc/",
   "dependencies": {
     "@craco/craco": "^7.0.0",
     "@emotion/react": "^11.10.6",
@@ -34,7 +35,8 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"*.{js,jsx,ts,tsx,json,css,js}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +69,7 @@
     "@commitlint/config-conventional": "^17.4.4",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4"
